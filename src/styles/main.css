@@ -44,7 +44,7 @@
     --fs-xl: 1.8rem;
 }
 
-@media (min-width: 460px){
+@media (min-width: 530px){
         :root{
             /* font size */
             --fs-med: 1rem;
@@ -227,7 +227,7 @@
         background-color: var(--color-grey-900);
     }
 
-    @media (min-width: 460px){
+    @media (min-width: 530px){
         main{
             padding: 30px;
         }
@@ -239,6 +239,17 @@
 }
 
 @layer layout{
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
     .container{
         max-width: var(--mx-w);
         display: flex;
@@ -298,18 +309,17 @@
     }
 
     .error-message{
-        display: none;
+        margin-top: 10px;
+        display: block;
+        color: var(--color-red);
+        font-size: var(--fs-med);
     }
 
-    @media (min-width: 460px){
+    @media (min-width: 530px){
         .container{
-            height: 100vh;
             width: 100%;
-            margin: auto;
-        }
-
-        main{
-            margin-bottom: 40px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         .naming-info,
