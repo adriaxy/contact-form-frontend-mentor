@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="./src/styles/main.css">
+  <script type="module" src="./src/main.js"></script>
+  <title>Frontend Mentor | Contact form</title>
+
+</head>
+<body>
+  <div class="container">
+    <main>
+      <h1>Contact Us</h1>
+      <form action="" id="contact-form">
+        <div class="naming-info">
+          <div data-type="name">
+            <label for="name" class="labeli">First Name <span class="asterisk">*</span></label>
+            <input type="text" id="name" name="name">
+            <span class="error-message required-name" aria-hidden="true">This field is required</span>
+          </div>
+          <div data-type="last-name">
+            <label for="last-name">Last Name <span class="asterisk">*</span></label>
+            <input type="text" id="last-name" name="last-name">
+            <span class="error-message required-last-name" aria-hidden="true">This field is required</span>
+          </div>
+        </div>
+        <div class="email">
+            <label for="email">Email Address <span class="asterisk">*</span></label>
+            <input type="text" id="email" name="email">
+            <span class="error-message required-email" aria-hidden="true">Please enter a valid email address</span>
+        </div>
+        <div class="query-type">
+          <fieldset>
+            <legend>Query Type <span class="asterisk">*</span></legend>
+            <div class="query-type-inputs">
+              <div class="radio-wrapper">
+                <label class="radio-label">
+                  <input type="radio" name="query" class="input-hidden">
+                  <span class="radio-btn" aria-hidden="true"></span>
+                  General Enquiry
+                </label>
+              </div>
+              <div class="radio-wrapper">
+                <label class="radio-label">
+                  <input type="radio" name="query" class="input-hidden">
+                  <span class="radio-btn" aria-hidden="true"></span>
+                  Support Request
+                </label>
+              </div>
+            </div>
+          </fieldset>
+          <span class="error-message required-query-type" aria-hidden="true">Please select a query type</span>
+        </div>
+        <div class="message">
+          <label for="message">Message <span class="asterisk"> *</span></span></label>
+          <textarea name="message" id="message"></textarea>
+          <span class="error-message required-message" aria-hidden="true">This field is required</span>
+        </div>
+        <div class="consent-field">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" name="consent" class="input-hidden">
+            <span class="checkbox-btn" aria-hidden="true"></span>
+            <span class="consent-field-text">I consent to being contacted by the team<span class="asterisk"> *</span></span>
+          </label>
+          <span class="error-message required-consent" aria-hidden="true">To submit this form, please consent to being contacted</span>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <dialog id="message-sent">
+      <div class="dialog-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" fill="none" viewBox="0 0 20 21"><path fill="#fff" d="M14.28 7.72a.748.748 0 0 1 0 1.06l-5.25 5.25a.748.748 0 0 1-1.06 0l-2.25-2.25a.75.75 0 1 1 1.06-1.06l1.72 1.72 4.72-4.72a.75.75 0 0 1 1.06 0Zm5.47 2.78A9.75 9.75 0 1 1 10 .75a9.76 9.76 0 0 1 9.75 9.75Zm-1.5 0A8.25 8.25 0 1 0 10 18.75a8.26 8.26 0 0 0 8.25-8.25Z"/></svg>
+        <h2>Message Sent!</h2>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </div>
+    </dialog>
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </div>
+</body>
+</html>

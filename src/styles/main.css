@@ -1,0 +1,326 @@
+@font-face {
+    font-family: "Karla";
+    src: url(../../assets/fonts/Karla-VariableFont_wght.ttf);
+    font-style: normal;
+    font-display: swap;
+}
+
+:root{
+    /* Colors */
+    /* Primary colors */
+    --color-green-200: hsl(148, 38%, 91%);
+    --color-green-600: hsl(169, 92%, 31%);
+    --color-red: hsl(0, 66%, 54%);
+
+    /* Neutral colors */
+    --color-white: hsl(0, 0%, 100%);
+    --color-grey-500: hsl(186, 15%, 59%);
+    --color-grey-900: hsl(187, 24%, 22%);
+    --gray-border: rgb(192, 192, 192);
+
+    /* background img */
+    --radio-btn-url: url('../../assets/images/icon-radio-selected.svg');
+    --checkbox-btn-url: url('../../assets/images/icon-checkbox-check.svg');
+
+    /* max-width */
+    --mx-w: 700px;
+
+    /* margis */
+    --mt-input: 12px;
+    --mb-input-mb: 10px;
+
+    /* gap */
+    --gap-mb: 20px;
+
+    /* sizes */
+    --h-input: 40px;
+
+    /* border radius */
+    --border-r: 5px;
+
+    /* font size */
+    --fs-med: 0.9rem;
+    --fs-reg: 1rem;
+    --fs-xl: 1.8rem;
+}
+
+@media (min-width: 460px){
+        :root{
+            /* font size */
+            --fs-med: 1rem;
+            --fs-reg: 1.1rem;
+            --fs-xl: 2rem;
+
+            /* margis */
+            --mb-input-mb: 17px;
+
+            /* gap */
+            --gap-mb: 26px;
+        }
+    }
+
+@layer reset{
+    *,
+    *::after,
+    *::before{
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    h1,h2{
+        margin: 0;
+        padding: 0;
+    }
+
+    input:-webkit-autofill {
+        background-color: white !important; 
+        -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+        -webkit-text-fill-color: black !important; /
+    }
+
+    input {
+        display: block;
+    }
+
+    .input-hidden{
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+    }
+
+    legend {
+        margin: 0;
+        padding: 0;
+        font-size: inherit;
+        font-weight: normal;
+    }
+
+    textarea {
+        margin: 0;
+        padding: 0;
+        outline: none;
+        background: transparent;
+        font: inherit;
+        color: inherit;
+        resize: none; 
+        box-sizing: border-box;
+    }
+
+    button{
+        background-color: var(--color-green-600);
+        color: var(--color-white);
+        border-radius: var(--border-r);
+        height: 50px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@layer base{
+
+    html{
+        font-family: Karla, sans-serif;
+    }
+
+    body{
+        background-color: var(--color-green-200);
+    }
+
+    main{
+        background-color: var(--color-white);
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    .radio-btn{
+        display: inline-block;
+        width: 20px;
+        height: 21px;
+        border: 1px solid var(--gray-border);
+        border-radius: 50%;
+    }
+
+    .checkbox-btn{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid var(--gray-border);
+    }
+
+    .checkbox-btn-active{
+        background-image: var(--checkbox-btn-url);
+        background-size: cover;
+        border: none;
+    }
+
+    .radio-btn-active{
+        background-image: var(--radio-btn-url);
+        background-size: cover;
+        border: none;
+    }
+
+    input,
+    .radio-wrapper,
+    textarea{
+        border: 1px solid;
+        border-radius: var(--border-r);
+        border: 1px solid var(--gray-border);
+        transition: border-color .2s ease;
+    }
+
+    :is(input, .radio-wrapper, textarea):hover{
+        border: 1px solid var(--color-green-600);
+    }
+
+    textarea{
+        height: 220px;
+    }
+
+    input{
+        height: var(--h-input);
+    }
+
+    textarea, 
+    input{
+        padding: 15px;
+    }
+
+    .radio-wrapper{
+        height: 45px;
+    }
+
+    label:not(.radio-label){
+        display: inline-block;
+        margin-bottom: var(--mb-input-mb);
+    }
+
+    .asterisk{
+        color: var(--color-green-600);
+        margin-left: 5px;
+    }
+
+    h1{
+        color: var(--color-grey-900);
+        margin-bottom: 20px;
+        font-size: var(--fs-xl);
+    }
+
+    label:not(.radio-label),
+    legend{
+        font-size: var(--fs-med);
+    }
+
+    .radio-label,
+    button{
+        font-size: var(--fs-reg);
+    }
+
+    button:hover{
+        background-color: var(--color-grey-900);
+    }
+
+    @media (min-width: 460px){
+        main{
+            padding: 30px;
+        }
+
+       textarea{
+        height: 100px;
+        }
+    }
+}
+
+@layer layout{
+    .container{
+        max-width: var(--mx-w);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 40px 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-mb);
+    }
+
+    footer{
+        max-width: var(--mx-w);
+        margin: 0px 12px;
+    }
+
+    .naming-info > *{
+        width: 100%;
+    }
+
+    .naming-info,
+    .query-type-inputs{
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-mb);
+    }
+
+    .radio-wrapper,
+    input,
+    textarea{
+        width: 100%;
+        cursor: pointer;
+    }
+
+    legend{
+        margin-bottom: var(--mb-input-mb);
+    }
+
+    .checkbox-wrapper,
+    .radio-wrapper label{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .radio-wrapper label{
+        margin-left: 18px;
+        height: var(--h-input);
+    }
+
+    .message label{
+        display: block;
+    }
+
+    .error-message{
+        display: none;
+    }
+
+    @media (min-width: 460px){
+        .container{
+            height: 100vh;
+            width: 100%;
+            margin: auto;
+        }
+
+        main{
+            margin-bottom: 40px;
+        }
+
+        .naming-info,
+        .query-type-inputs{
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+
+        h1{
+            margin-bottom: 35px;
+        }
+    }
+}
