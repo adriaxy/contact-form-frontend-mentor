@@ -55,7 +55,9 @@ form.addEventListener('submit', (e)=> {
     if(hasEmptyValues) return; 
 
     notificationSent.classList.add('active');
+    notificationSent.setAttribute('aria-hidden', 'false');
     setTimeout(() => {
+        notificationSent.setAttribute('aria-hidden', 'true');
         notificationSent.classList.remove('active');
     }, 4000);
 });
