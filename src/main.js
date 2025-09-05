@@ -24,6 +24,8 @@ const inputMessage = $id('message');
 const inputConsent = $id('consent');
 const btnSubmit = $id('submit');
 const checkboxBtn = $('.checkbox-btn');
+const radios = [inputEnquiry, inputRequest];
+const radioWrapper = $$('.radio-wrapper')
 
 // Error messages
 const errorName = $('.required-name');
@@ -44,13 +46,16 @@ const formValues = {
 
 form.addEventListener('submit', (e)=> {
     e.preventDefault();
-    console.log(formValues)
-    Object.values(formValues).forEach(value => {
-        if(value !== null)console.log(value)
+    console.log(formValues);
+    let isValidForm;
+    Object.values(formValues).find(value => {
+        if(value == null)isValidForm = false;
     })
+    if(!isValidForm) return;
+    
 });
 
-
+// Name field
 inputName.addEventListener('blur', (e)=> {
     validateInputAndUpdateField(e, validateName, errorName, inputName);
 });
@@ -58,6 +63,7 @@ inputName.addEventListener('input', (e)=> {
     hideError(errorName, inputName)
 });
 
+// Last Name field
 inputLastName.addEventListener('blur', (e)=> {
     validateInputAndUpdateField(e, validateName, errorLastName, inputLastName);
 });
@@ -65,6 +71,7 @@ inputLastName.addEventListener('input', (e)=> {
     hideError(errorName, inputLastName)
 });
 
+// Email field
 inputEmail.addEventListener('blur', (e)=> {
     validateInputAndUpdateField(e, validateEmail, errorEmail, inputEmail);
 });
@@ -72,6 +79,32 @@ inputEmail.addEventListener('input', (e)=> {
     hideError(errorEmail, inputEmail)
 });
 
+// Query Type field 
+radios.forEach(radio => {
+    radio.addEventListener('change', (e)=> {
+        radios.forEach(r => {
+            r.nextElementSibling.classList.remove('radio-btn-active');
+        });
+        radioWrapper.forEach(wrapper => wrapper.classList.remove('active'));
+
+        if(e.target.checked){
+            e.target.nextElementSibling.classList.add('radio-btn-active');
+            e.target.closest('.radio-wrapper').classList.add('active')
+            updateFormValues(formValues, "query-type", e.target.id);
+        };
+    })
+})
+
+// Message field
+inputMessage.addEventListener('blur', (e)=> {
+    const isNotEmpty = (value) => value
+    validateInputAndUpdateField(e, isNotEmpty, errorMessage, inputMessage);
+});
+inputMessage.addEventListener('input', (e)=> {
+    hideError(errorEmail, inputMessage)
+});
+
+// Consent field
 inputConsent.addEventListener('change', ()=> {
     if(inputConsent.checked){
         checkboxBtn.classList.add('checkbox-btn-active');
@@ -81,14 +114,6 @@ inputConsent.addEventListener('change', ()=> {
         updateFormValues(formValues, inputConsent.id, null);
         console.log('deschecked')
     }
-})
-
-inputMessage.addEventListener('blur', (e)=> {
-    const isNotEmpty = (value) => value
-    validateInputAndUpdateField(e, isNotEmpty, errorMessage, inputMessage);
-});
-inputMessage.addEventListener('input', (e)=> {
-    hideError(errorEmail, inputMessage)
 });
 
 function validateInputAndUpdateField(event, validateInputFunction, spanError, input){

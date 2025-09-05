@@ -90,7 +90,7 @@
         opacity: 0;
     }
 
-    fieldset {
+    fieldset{
         margin: 0;
         padding: 0;
         border: none;
@@ -180,7 +180,7 @@
         border: 1px solid var(--color-green-600);
     }
 
-    :is(input, .radio-wrapper, textarea):focus{
+    :is(input, .radio-wrapper, textarea, .checkbox-wrapper):focus{
         outline: none;
         border: 1px solid var(--color-green-600);
     }
@@ -200,6 +200,10 @@
 
     .radio-wrapper{
         height: 45px;
+    }
+
+    .radio-wrapper.active{
+        background-color: var(--color-green-200);
     }
 
     label:not(.radio-label){
