@@ -38,6 +38,7 @@
 
     /* border radius */
     --border-r: 5px;
+    --border-big: 15px;
 
     /* font size */
     --fs-med: 0.9rem;
@@ -138,7 +139,7 @@
 
     main{
         background-color: var(--color-white);
-        border-radius: 15px;
+        border-radius: var(--border-big);
         padding: 20px;
     }
 
@@ -236,13 +237,37 @@
         background-color: var(--color-grey-900);
     }
 
+    #notification-sent{
+        background-color: var(--color-green-900);
+        color: var(--color-white);
+        padding: 25px;
+        border-radius: var(--border-big);
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .text-notification{
+        font-size: var(--fs-med);
+    }
+
+    h2{
+        font-size: var(--fs-reg);
+        margin-bottom: var(--mb-input-mb);
+    }
+
     @media (min-width: 530px){
         main{
             padding: 30px;
         }
 
        textarea{
-        height: 100px;
+            height: 100px;
+        }
+
+        #notification-sent{            
+            width: 455px;    
         }
     }
 }
@@ -323,6 +348,24 @@
         display: none;
         color: var(--color-red);
         font-size: var(--fs-med);
+    }
+
+    .dialog-title{
+        display: flex;
+        gap: 10px;
+    }
+
+    #notification-sent{
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: top .4s ease;
+    }
+
+    #notification-sent.active{
+        position: fixed;
+        top: 10vh;
     }
 
     @media (min-width: 530px){

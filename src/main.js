@@ -35,6 +35,9 @@ const errorQuertType = $('.required-query-type');
 const errorMessage = $('.required-message');
 const errorConsent = $('.required-consent');
 
+// Sent form notification 
+const notificationSent = $id('notification-sent');
+
 const formValues = {
     "name": null,
     "last-name": null,
@@ -46,13 +49,15 @@ const formValues = {
 
 form.addEventListener('submit', (e)=> {
     e.preventDefault();
-    console.log(formValues);
-    let isValidForm;
-    Object.values(formValues).find(value => {
-        if(value == null)isValidForm = false;
-    })
-    if(!isValidForm) return;
-    
+
+    const hasEmptyValues = Object.values(formValues).some(value => value === null);
+
+    if(hasEmptyValues) return; 
+
+    notificationSent.classList.add('active');
+    setTimeout(() => {
+        notificationSent.classList.remove('active');
+    }, 4000);
 });
 
 // Name field
