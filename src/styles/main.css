@@ -10,6 +10,7 @@
     /* Primary colors */
     --color-green-200: hsl(148, 38%, 91%);
     --color-green-600: hsl(169, 92%, 31%);
+    --color-green-900: hsl(170, 92%, 19%);
     --color-red: hsl(0, 66%, 54%);
 
     /* Neutral colors */
@@ -128,6 +129,7 @@
 
     html{
         font-family: Karla, sans-serif;
+        color: var(--color-green-900);
     }
 
     body{
@@ -167,9 +169,7 @@
         border: none;
     }
 
-    input,
-    .radio-wrapper,
-    textarea{
+    :is(input, .radio-wrapper, textarea){
         border: 1px solid;
         border-radius: var(--border-r);
         border: 1px solid var(--gray-border);
@@ -177,6 +177,11 @@
     }
 
     :is(input, .radio-wrapper, textarea):hover{
+        border: 1px solid var(--color-green-600);
+    }
+
+    :is(input, .radio-wrapper, textarea):focus{
+        outline: none;
         border: 1px solid var(--color-green-600);
     }
 
@@ -253,6 +258,7 @@
     .container{
         max-width: var(--mx-w);
         display: flex;
+        width: 100%;
         flex-direction: column;
         justify-content: center;
         margin: 40px 20px;
@@ -310,7 +316,7 @@
 
     .error-message{
         margin-top: 10px;
-        display: block;
+        display: none;
         color: var(--color-red);
         font-size: var(--fs-med);
     }

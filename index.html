@@ -39,14 +39,14 @@
             <div class="query-type-inputs">
               <div class="radio-wrapper">
                 <label class="radio-label">
-                  <input type="radio" name="query" class="input-hidden">
+                  <input type="radio" name="query" class="input-hidden" id="general-enquiry">
                   <span class="radio-btn" aria-hidden="true"></span>
                   General Enquiry
                 </label>
               </div>
               <div class="radio-wrapper">
                 <label class="radio-label">
-                  <input type="radio" name="query" class="input-hidden">
+                  <input type="radio" name="query" class="input-hidden" id="support-request">
                   <span class="radio-btn" aria-hidden="true"></span>
                   Support Request
                 </label>
@@ -62,13 +62,13 @@
         </div>
         <div class="consent-field">
           <label class="checkbox-wrapper">
-            <input type="checkbox" name="consent" class="input-hidden">
+            <input type="checkbox" name="consent" class="input-hidden" id="consent">
             <span class="checkbox-btn" aria-hidden="true"></span>
             <span class="consent-field-text">I consent to being contacted by the team<span class="asterisk"> *</span></span>
           </label>
           <span class="error-message required-consent" aria-hidden="true">To submit this form, please consent to being contacted</span>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
       </form>
     </main>
     <dialog id="message-sent">
@@ -78,10 +78,6 @@
         <p>Thanks for completing the form. We'll be in touch soon!</p>
       </div>
     </dialog>
-    <footer class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
-    </footer>
   </div>
 </body>
 </html>
